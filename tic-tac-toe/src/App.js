@@ -42,6 +42,10 @@ function App() {
 
   return (
     <div className="App">
+      <h1>
+        Player:{" "}
+        <span style={{ color: "gray" }}>{playerOne.turn ? "X" : "O"}</span>
+      </h1>
       <Game>
         <div
           id="1"
@@ -115,6 +119,13 @@ function App() {
               : handleClick(e.target.id, e);
           }}
         ></div>
+        <button
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          Reset
+        </button>
       </Game>
     </div>
   );
@@ -134,9 +145,36 @@ const Game = styled.div`
   border: 2px solid gray;
   border-radius: 20px;
 
+  button {
+    margin: 50px auto;
+    box-shadow: inset 0px 5px 4px 0px #bbdaf7;
+    background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    background-color: #79bbff;
+    border-radius: 6px;
+    border: 1px solid #84bbf3;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 11px 51px;
+    text-decoration: none;
+    text-shadow: 0px -1px 50px #528ecc;
+
+    &:hover {
+      background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+      background-color: #378de5;
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
   div {
     text-align: center;
-    border: 0.1px solid red;
+    border: 0.1px solid gray;
     min-width: 33.2%;
     height: 33.32%;
     font-family: "Chango", cursive;
