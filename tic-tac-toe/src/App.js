@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import O from "./players_O_X/O.png";
-import X from "./players_O_X/X.png";
-import "./App.css";
 
 function App() {
   const [playerOne, setPlayerOne] = useState({
@@ -11,23 +8,34 @@ function App() {
   });
 
   const [playerTwo, setPlayerTwo] = useState({
-    turn: true,
+    turn: false,
     icon: "O"
   });
 
+  const winPosib = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ];
+
   const handleClick = (id, e) => {
     if (!playerOne.turn) {
-      setPlayerOne({ ...playerOne, turn: true });
+      setPlayerOne({
+        ...playerOne,
+        turn: true
+      });
       setPlayerTwo({ ...playerTwo, turn: false });
     } else {
-      setPlayerOne({ ...playerOne, turn: false });
-      setPlayerTwo({ ...playerTwo, turn: true });
+      setPlayerOne({
+        ...playerOne,
+        turn: false
+      });
+      setPlayerTwo({
+        ...playerTwo,
+        turn: true
+      });
     }
-
-    const div = e.target;
-    const p = document.createElement("p");
-
-    return playerOne.turn
+    playerOne.turn
       ? (e.target.innerHTML = playerOne.icon)
       : (e.target.innerHTML = playerTwo.icon);
   };
@@ -38,55 +46,73 @@ function App() {
         <div
           id="1"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="2"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="3"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="4"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="5"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="6"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="7"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="8"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
         <div
           id="9"
           onClick={e => {
-            handleClick(e.target.id, e);
+            e.target.innerHTML
+              ? alert("Choose an empty field")
+              : handleClick(e.target.id, e);
           }}
         ></div>
       </Game>
