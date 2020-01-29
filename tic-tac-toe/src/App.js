@@ -23,10 +23,13 @@ function App() {
       setPlayerOne({ ...playerOne, turn: false });
       setPlayerTwo({ ...playerTwo, turn: true });
     }
-    console.log(playerOne.turn, playerTwo.turn);
-    return (e.target.innerHTML = playerOne.turn
-      ? playerOne.icon
-      : playerTwo.icon);
+
+    const div = e.target;
+    const p = document.createElement("p");
+
+    return playerOne.turn
+      ? (e.target.innerHTML = playerOne.icon)
+      : (e.target.innerHTML = playerTwo.icon);
   };
 
   return (
@@ -109,6 +112,8 @@ const Game = styled.div`
     text-align: center;
     border: 0.1px solid red;
     min-width: 33.2%;
-    max-height: 33.33%;
+    height: 33.32%;
+    font-family: "Chango", cursive;
+    font-size: 5rem;
   }
 `;
